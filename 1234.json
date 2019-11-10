@@ -1,0 +1,122 @@
+{
+    "partId": "",
+    "mimeType": "multipart/alternative",
+    "filename": "",
+    "headers": [
+        {
+            "name": "Delivered-To",
+            "value": "caffrey.testing@gmail.com"
+        },
+        {
+            "name": "Received",
+            "value": "by 2002:a9d:36a:0:0:0:0:0 with SMTP id 97csp2374529otv;        Sat, 2 Nov 2019 18:16:35 -0700 (PDT)"
+        },
+        {
+            "name": "X-Received",
+            "value": "by 2002:a2e:a175:: with SMTP id u21mr7844177ljl.198.1572743795668;        Sat, 02 Nov 2019 18:16:35 -0700 (PDT)"
+        },
+        {
+            "name": "ARC-Seal",
+            "value":"i=1; a=rsa-sha256;t=1572743795; cv=none;        d=google.com; s=arc-20160816;        b=kqRIjbEMTChyfc8xTPNLN3zfW6oSm+/UK68bKUqjPmQgnP2UQCbFhSdBlIghmXX9mG         33BiAF5BFKtd0amwi2s8cO3sMxYXXO7GN/7hus8GlWb3GpYrUXqMoSkSaLKzCUFcm7f/         cQaGfAtTdKBosCqBH1xj6kKc/TTiNnpxlttAsraUqiaZCW2bkpJtO9KrRTCBhZ1npnRt         NJVZVRQoiUee68G/Cg19NLemzkauzotg3UJr8viKu+GGP0Z1mfyNFqxd3sT1aXPL5uLl         XoWDSjPmX3D/3PyJpBOSy4A9W9rDvNUWrv5YEsE6pe7CCb9qQabpC8zhw/gpJEVVxsM4         cArA=="},{"name":"ARC-Message-Signature","value":"i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;        h=to:subject:message-id:date:from:mime-version:dkim-signature;        bh=U67FAr/2i1fbswgitzpdWdUvUwruzBuCcx7OfMtKVqg=;        b=GnK4XdJK+NQHpvEl7rkiptmPdjfs93tu6oXxEevQngrNh7S2aTWYEvCoe0Q/t2g2Ub         KfpeGF2NLH44OaCwcBMeUCARDit0je0/aTyXxX93p+MVnr8r+8b9ERURjuiwHhIBI4ud         d+SyS1eYHSbL35M0q3UfK67LVU3CFEzSZA2rViTY0VO4X+U13Zj5HffYWrd3UdC05Ogv         EOqGiFYV70ZAkenDFJ9MT+/+V9ExYs1Kt+Kv8fkzJz7df8YPAvHjZQ5B7+J6nhoHDiFj         SU6ln37K/G9+xiitU830hy5z12/kPZoTFuPzTIYBdNDNytgZ9nIyCX0Otraq+bt+xCVr         PtzA=="},{"name":"ARC-Authentication-Results","value":"i=1; mx.google.com;       dkim=pass header.i=@gmail.com header.s=20161025 header.b=\"AuYf8/9Y\";       spf=pass (google.com: domain of caffrey.zheng0316@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=caffrey.zheng0316@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com"
+        },
+        {
+            "name": "Return-Path",
+            "value": "<caffrey.zheng0316@gmail.com>"
+        },
+        {
+            "name": "Received",
+            "value": "from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])        by mx.google.com with SMTPS id 24sor756664lfy.24.2019.11.02.18.16.35        for <caffrey.testing@gmail.com>        (Google Transport Security);        Sat, 02 Nov 2019 18:16:35 -0700 (PDT)"
+        },
+        {
+            "name": "Received-SPF",
+            "value": "pass (google.com: domain of caffrey.zheng0316@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;"
+        },
+        {
+            "name": "Authentication-Results",
+            "value": "mx.google.com;       dkim=pass header.i=@gmail.com header.s=20161025 header.b=\"AuYf8/9Y\";       spf=pass (google.com: domain of caffrey.zheng0316@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=caffrey.zheng0316@gmail.com;       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com"
+        },
+        {
+            "name": "DKIM-Signature",
+            "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=gmail.com; s=20161025;        h=mime-version:from:date:message-id:subject:to;        bh=U67FAr/2i1fbswgitzpdWdUvUwruzBuCcx7OfMtKVqg=;        b=AuYf8/9Yw5xJs65zWqgKyXKJlpll0TW1zVDjgIfHmEdxLMtLdJVPxTcHzTELIMYqsM         /9HcwI27HwJ4qQ3S+4t9Tu76Ga1YVLxEoJcyhM6K7Qwjnt9lCTKWozEi2A1p4HEJlBNM BVLs2GI/Ko2p1TThDUHg8vFGjSPnEhg/bM6t/wODnxr2MtAhuGCBvAeMfh5ReVDdPzOA         pp2NBCgWauTVvBcle7/YxKrmYVEDdAbmnIdOTW/KXQvwABBULdD2xnP3pvg5TiM+6YkD         Da4WskZvUp+9kPSPi4COEVsiVV7IETx30fQ75Mkp4hHc0VErnduHwe1CJ5CwkDW43p3PWr+w=="
+        },
+        {
+            "name": "X-Google-DKIM-Signature",
+            "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20161025;        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;        bh=U67FAr/2i1fbswgitzpdWdUvUwruzBuCcx7OfMtKVqg=;        b=bg8tgA3h9zBO7afNRwVYpqYtRRtl4Mk4EFqz2WWt4oDt4nvyD/KdZFVAttV/pqy1v1         9DfvkZdlWv2h+zF9pxFqPm8pskzNDa+Jyp1Fc8TkBHX0YJ4qMIZpr7ObtKowN2OEVe5H         AWBSXvMjUj1fjPp5C5e9yegBjHRgIWwBHlEZLsrsifRILeGouikF31lKRLD4yHTt7wM8         EP4cw7EoUjKWzfJvV9ViwVQyTi9VBj3OyWmlnrH8h9jKut4X6fXZu4hAQd/JrUSgtC4a         HF9DCGQRZaIJerLGWalbVgCbqKelexI1fOqBKJywY4xBCkAjWUKlTw0ajDYkk5lThv9s         nlbg=="
+        },
+        {
+            "name": "X-Gm-Message-State",
+            "value": "APjAAAVPMSCsCQ++ofncaf8euqaO1hJuSVQqO8rmOKsDioRWh/yEzGPT cil3U2aJD3QO11ojWy6s1bXMdgZ4mmhPZ8Hca3yhbw=="
+        },
+        {
+            "name": "X-Google-Smtp-Source",
+            "value": "APXvYqxbit+ABBgoKYxGpka1iand9DPbhlDN5U5yUz+wGN/YvzA+jcMRA2xD7IAPv1nuZuaf5TLEG5PeR8FTa9DJ7+w="
+        },
+        {
+            "name": "X-Received",
+            "value": "by 2002:a19:e058: : with SMTP id g24mr12257068lfj.8.1572743795120; Sat,02 Nov 2019 18: 16: 35 -0700 (PDT)"
+        },
+        {
+            "name": "MIME-Version",
+            "value": "1.0"
+        },
+        {
+            "name": "From",
+            "value": "Hongbin Zheng <caffrey.zheng0316@gmail.com>"
+        },
+        {
+            "name": "Date",
+            "value": "Sat, 2 Nov 2019 18: 16: 24 -0700"
+        },
+        {
+            "name": "Message-ID",
+            "value": "<CAMrTxXF=unr-Zfd5oNvDFs13pfDCSDJzndByKGO_izG_8nwhZA@mail.gmail.com>"
+        },
+        {
+            "name": "Subject",
+            "value": "hello"
+        },
+        {
+            "name": "To",
+            "value": "\"caffrey.testing@gmail.com\" <caffrey.testing@gmail.com>"
+        },
+        {
+            "name": "Content-Type",
+            "value": "multipart/alternative; boundary=\"0000000000003b1fef059666f310\""
+        }
+    ],
+    "body": {
+        "size": 0
+    },
+    "parts": [
+        {
+            "partId": "0",
+            "mimeType": "text/plain",
+            "filename": "",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "text/plain; charset=\"UTF-8\""
+                }
+            ],
+            "body": {
+                "size": 8,
+                "data": "aGhlbGxvDQo="
+            }
+        },
+        {
+            "partId": "1",
+            "mimeType": "text/html",
+            "filename": "",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "text/html; charset=\"UTF-8\""
+                }
+            ],
+            "body": {
+                "size": 30,
+                "data": "PGRpdiBkaXI9ImF1dG8iPmhoZWxsbzwvZGl2Pg0K"
+            }
+        }
+    ]
+}
