@@ -46,6 +46,11 @@ function toObject(arr) {
   return rv;
 }
 
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 const CLIENT_ID = config.CLIENT_ID
 const CLIENT_SECRET = config.CLIENT_SECRET
 app.get('/api/getrefreshtoken', (req,res)=>{
