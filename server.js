@@ -55,6 +55,7 @@ const CLIENT_ID = config.CLIENT_ID
 const CLIENT_SECRET = config.CLIENT_SECRET
 app.get('/api/getrefreshtoken', (req,res)=>{
   var authCode = req.query.code
+  var uri = req.query.uri
   console.log(authCode)
   console.log('call~')
   var options = {
@@ -66,7 +67,7 @@ app.get('/api/getrefreshtoken', (req,res)=>{
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       code: authCode,
-      redirect_uri: 'http://localhost:6000'
+      redirect_uri: uri
     }
   };
   request(options, function (error, response, body) {
@@ -92,7 +93,7 @@ app.get('/api/getGmail', (req,res)=>{
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       refresh_token: authCode,
-      //redirect_uri: 'http://localhost:6000'
+      redirect_uri: 'http://localhost:6000'
     }
   };
   request(options, async function (error, response, body) {
