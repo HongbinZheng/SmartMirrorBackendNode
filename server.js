@@ -77,7 +77,7 @@ app.get('/api/getrefreshtoken', (req,res)=>{
   });
 
 })
-
+/////////////////////////GET GMAIL//////////////////////
 app.get('/api/getGmail', (req,res)=>{
   var authCode = req.query.code
   // console.log(authCode)
@@ -157,7 +157,59 @@ function getThreadList(gmail,gmailList,label){
 ////////////END Gmail//////////////
 
 /////////google calendar//////////
+app.get('/api/getCalendar', (req,resp)=>{
+  var authCode = req.query.code
+  // console.log(authCode)
+  // console.log('call~')
+  var gmailList = [];
+  var options = {
+    method: 'POST',
+    url: 'https://www.googleapis.com/oauth2/v4/token',
+    headers: {'content-type': 'application/x-www-form-urlencoded'},
+    form: {
+      grant_type: 'refresh_token',
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      refresh_token: authCode,
+      //redirect_uri: 'http://localhost:6000'
+    }
+  };
+  request(options, async function (error, response, body) {
+    if (error) throw new Error(error);
+    body = JSON.parse(body)
+    //////Get gmail items 
+    const {client_secret, client_id, redirect_uris} = creds.web;
+    const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
+    oAuth2Client.setCredentials({access_token:body.access_token});
+    google.options({auth:oAuth2Client});
 
+    const calendar = google.calendar({version: 'v3', oAuth2Client});
+    calendar.events.list({
+      calendarId: 'primary',
+      timeMin: (new Date()).toISOString(),
+      maxResults: 10,
+      singleEvents: true,
+      orderBy: 'startTime',
+    }, (err, res) => {
+      if (err) return console.log('The API returned an error: ' + err);
+      const events = res.data.items;
+      var eventList = []
+      if (events.length) {
+        console.log('Upcoming 10 events:');
+        for(const event of events){
+          eventList.push({
+            start: event.start.dateTime || event.start.date,
+            end: event.end.dateTime || event.end.date,
+            summary:event.summary
+          })
+        }
+      } else {
+        console.log('No upcoming events found.');
+      }
+      resp.send(eventList);
+    });
+  });
+})
 
 
 
