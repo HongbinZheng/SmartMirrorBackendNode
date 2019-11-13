@@ -108,6 +108,9 @@ app.get('/api/getGmail', (req,res)=>{
     const gmail = google.gmail({version: 'v1', oAuth2Client});
     await getGmailMessage(gmail,gmailList)
     //console.log(gmailList)
+    gmailList = gmailList.filter(data=>{
+      return data.labelId.includes("UNREAD")
+    })
     res.send(gmailList);
   });
 })
@@ -149,6 +152,7 @@ function getThreadList(gmail,gmailList,label){
       })
       gmailInfo = toObject(gmailInfo)
       gmailInfo.snippet = res.data.messages[0].snippet
+      gmailInfo.labelId = res.data.messages[0].labelIds
       gmailList.push(gmailInfo)
       resolve(gmailList)
       //console.log(JSON.stringify(res.data.messages[0].payload))
