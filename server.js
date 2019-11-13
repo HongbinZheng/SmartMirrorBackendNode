@@ -81,6 +81,7 @@ app.get('/api/getrefreshtoken', (req,res)=>{
 /////////////////////////GET GMAIL//////////////////////
 app.get('/api/getGmail', (req,res)=>{
   var authCode = req.query.code
+  var uri = req.query.uri
   // console.log(authCode)
   // console.log('call~')
   var gmailList = [];
@@ -93,7 +94,7 @@ app.get('/api/getGmail', (req,res)=>{
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       refresh_token: authCode,
-      redirect_uri: 'http://localhost:6000'
+      redirect_uri: uri
     }
   };
   request(options, async function (error, response, body) {
@@ -160,6 +161,7 @@ function getThreadList(gmail,gmailList,label){
 /////////google calendar//////////
 app.get('/api/getCalendar', (req,resp)=>{
   var authCode = req.query.code
+  var uri = req.query.uri
   // console.log(authCode)
   // console.log('call~')
   var gmailList = [];
@@ -172,7 +174,7 @@ app.get('/api/getCalendar', (req,resp)=>{
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
       refresh_token: authCode,
-      //redirect_uri: 'http://localhost:6000'
+      redirect_uri: uri
     }
   };
   request(options, async function (error, response, body) {
